@@ -1,0 +1,62 @@
+version: '3'
+services:
+  # TODO: タイムゾーンをJSTにする
+  mysql:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    platform: linux/amd64
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: ez_web_db
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  ez_web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    environment:
+      MYSQL_DATABASE: ez_web_db
+      MYSQL_HOST: mysql
+      MYSQL_USERNAME: root
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_PORT: 3306
+    volumes:
+      - .:/ez_web
+    ports:
+      - "3001:3000"
+    depends_on:
+      - mysql
+      # - smtp
+      # - redis
+
+  # swagger-ui:
+  #   image: swaggerapi/swagger-ui:latest
+  #   platform: linux/amd64
+  #   container_name: "swagger-ui"
+  #   ports:
+  #     - "8010:8080"
+  #   volumes:
+  #     - ./schema/openapi.yml:/openapi.yml
+  #   environment:
+  #     SWAGGER_JSON: /openapi.yml
+
+  # smtp:
+  #   image: schickling/mailcatcher
+  #   platform: linux/amd64
+  #   ports:
+  #     - '1082:1080'
+  #     - '1022:1025'
+
+  # redis:
+  #   image: "redis:latest"
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - redisdata:/data
+
+volumes:
+  mysql-data:
+  # redisdata:
