@@ -1,15 +1,5 @@
 <div class="flex flex-col min-h-screen">
-  <header class="bg-white dark:bg-gray-800 p-4 flex justify-between items-center">
-    <h1 class="text-2xl font-bold">Engineering Learning Portal</h1>
-    <div class="space-x-4">
-      <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary underline-offset-4 hover:underline h-10 px-4 py-2">
-        User Screen
-      </button>
-      <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary underline-offset-4 hover:underline h-10 px-4 py-2">
-        Logout
-      </button>
-    </div>
-  </header>
+  <%= render "shared/header" %>
   <main class="flex-grow flex bg-white dark:bg-gray-900">
     <aside class="w-64 min-h-screen p-4">
       <h2 class="text-2xl font-bold mb-4">Features</h2>
@@ -34,21 +24,13 @@
     <div class="container flex-grow py-12 px-4 mx-auto">
       <nav class="mb-8">
         <ul class="flex space-x-4">
-          <li>
-            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary underline-offset-4 hover:underline h-10 px-4 py-2">
-              Beginner
-            </button>
-          </li>
-          <li>
-            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary underline-offset-4 hover:underline h-10 px-4 py-2">
-              Intermediate
-            </button>
-          </li>
-          <li>
-            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary underline-offset-4 hover:underline h-10 px-4 py-2">
-              Advanced
-            </button>
-          </li>
+          <% @learning_stages.each do |stage| %>
+            <li>
+              <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary underline-offset-4 hover:underline h-10 px-4 py-2">
+                <%= stage %>
+              </button>
+            </li>
+          <% end %>
         </ul>
       </nav>
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

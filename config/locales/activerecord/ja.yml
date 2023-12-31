@@ -1,0 +1,8 @@
+ja:
+  enums:
+    topic:
+      learning_stage:
+        basic: 基礎学習期
+        advanced: 応用学習期
+        portfolio: ポートフォリオ作成期
+        interviewing: 面接期

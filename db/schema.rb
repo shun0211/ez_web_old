@@ -38,10 +38,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_30_124941) do
 
   create_table "topics", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
-    t.bigint "learning_stage_id", null: false
+    t.integer "learning_stage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["learning_stage_id"], name: "index_topics_on_learning_stage_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
