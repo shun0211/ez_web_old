@@ -1,26 +1,7 @@
-<div class="flex flex-col min-h-screen">
+<div class="flex flex-col min-h-screen w-full">
   <%= render "shared/header" %>
   <main class="flex-grow flex bg-white dark:bg-gray-900">
-    <aside class="w-64 min-h-screen p-4">
-      <h2 class="text-2xl font-bold mb-4">Features</h2>
-      <ul class="space-y-2">
-        <li>
-          <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary underline-offset-4 hover:underline h-10 px-4 py-2">
-            Feature 1
-          </button>
-        </li>
-        <li>
-          <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary underline-offset-4 hover:underline h-10 px-4 py-2">
-            Feature 2
-          </button>
-        </li>
-        <li>
-          <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary underline-offset-4 hover:underline h-10 px-4 py-2">
-            Feature 3
-          </button>
-        </li>
-      </ul>
-    </aside>
+    <%= render "shared/sidebar" %>
     <div class="container flex-grow py-12 px-4 mx-auto">
       <nav class="mb-8">
         <ul class="flex space-x-4">
@@ -34,60 +15,24 @@
         </ul>
       </nav>
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-          <div class="flex flex-col space-y-1.5 p-6">
-            <h2 class="text-2xl font-bold">Basic Web Knowledge</h2>
+        <% @topics.each do |topic| %>
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+            <div class="flex flex-col space-y-1.5 p-6">
+              <h2 class="text-2xl font-bold"><%= topic.name %></h2>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-600">
+                詳細
+              </p>
+              <button
+                class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary underline-offset-4 hover:underline h-10 px-4 py-2"
+                onclick="location.href='<%= membership_confirmation_questions_path %>'"
+              >
+                確認テスト
+              </button>
+            </div>
           </div>
-          <div class="p-6">
-            <p class="text-gray-600">
-              Start your journey to becoming an engineer by mastering the basics of web development.
-            </p>
-            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary underline-offset-4 hover:underline h-10 px-4 py-2">
-              Start Quiz
-            </button>
-          </div>
-        </div>
-        <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-          <div class="flex flex-col space-y-1.5 p-6">
-            <h2 class="text-2xl font-bold">Database Knowledge</h2>
-          </div>
-          <div class="p-6">
-            <p class="text-gray-600">
-              Understand the fundamentals of databases, a critical component of any web application.
-            </p>
-            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary underline-offset-4 hover:underline h-10 px-4 py-2">
-              Start Quiz
-            </button>
-          </div>
-        </div>
-        <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-          <div class="flex flex-col space-y-1.5 p-6">
-            <h2 class="text-2xl font-bold">Git Knowledge</h2>
-          </div>
-          <div class="p-6">
-            <p class="text-gray-600">
-              Get proficient with Git, an essential tool for version control and collaboration in software
-              development.
-            </p>
-            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary underline-offset-4 hover:underline h-10 px-4 py-2">
-              Start Quiz
-            </button>
-          </div>
-        </div>
-        <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-          <div class="flex flex-col space-y-1.5 p-6">
-            <h2 class="text-2xl font-bold">Progress Tracking</h2>
-          </div>
-          <div class="p-6">
-            <p class="text-gray-600">
-              Monitor your learning journey and set goals for yourself. See your quiz performance and areas of
-              improvement.
-            </p>
-            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary underline-offset-4 hover:underline h-10 px-4 py-2">
-              Check your Progress
-            </button>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </main>

@@ -13,4 +13,7 @@
 #  index_confirmation_questions_on_topic_id  (topic_id)
 #
 class ConfirmationQuestion < ApplicationRecord
+  belongs_to :topic
+
+  validates :question, presence: true, uniqueness: true
 end
