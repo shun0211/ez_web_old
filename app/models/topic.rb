@@ -13,5 +13,4 @@
 #  index_topics_on_learning_stage_id  (learning_stage_id)
 #
 class Topic < ApplicationRecord
-
 end

@@ -30,6 +30,7 @@ gem "sidekiq-scheduler"
 gem "sitemap_generator"
 gem "slack-notifier"
 gem "smarter_csv", require: false
+gem "tailwindcss-rails", "~> 2.1"
 
 group :production do
   gem 'unicorn'
