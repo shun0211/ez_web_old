@@ -1,0 +1,2 @@
+class LearningStage < ApplicationRecord
+end
