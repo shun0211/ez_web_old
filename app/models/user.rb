@@ -9,4 +9,7 @@
 #  updated_at   :datetime         not null
 #
 class User < ApplicationRecord
+  has_many :confirmation_answers
+
+  validates :firebase_uid, presence: true, uniqueness: true
 end
