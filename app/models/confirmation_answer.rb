@@ -16,4 +16,9 @@
 #  index_confirmation_answers_on_user_id                   (user_id)
 #
 class ConfirmationAnswer < ApplicationRecord
+  belongs_to :confirmation_question
+  belongs_to :user
+
+  validates :answer, presence: true
+  validates :correct, inclusion: { in: [true, false] }
 end

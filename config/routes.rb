@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   namespace :membership do
     resources :topics, only: [:index]
     resources :confirmation_questions, only: [:index]
+    resources :confirmation_answers, only: [:create]
   end
 end

@@ -9,7 +9,9 @@
 #  updated_at     :datetime         not null
 #
 class Topic < ApplicationRecord
-  validates :name, presence: true, uniqueness: true
+  has_many :confirmation_questions, dependent: :destroy
 
   enum learning_stage: { basic: 0, advanced: 1, portfolio: 2, interviewing: 3 }
+
+  validates :name, presence: true, uniqueness: true
 end

@@ -2,7 +2,8 @@ class MembershipController < ApplicationController
   # before_action :authorize_request
 
   def current_user
-    @current_user
+    # @current_user
+    @current_user ||= User.find_or_create_by(firebase_uid: "xxx")
   end
 
   private

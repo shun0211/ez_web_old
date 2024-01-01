@@ -5,43 +5,28 @@
     <div class="container flex-grow py-12 px-4 mx-auto">
       <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
         <div class="flex flex-col space-y-1.5 p-6">
-          <h2 class="text-2xl font-bold">Verification Quiz</h2>
+          <h2 class="text-2xl font-bold">
+            <%= @topic.name %>
+          </h2>
         </div>
         <div class="p-6">
-          <form class="space-y-4">
-            <div>
-              <label class="block text-gray-700">Question 1</label>
-              <textarea
-                class="form-textarea mt-1 block w-full"
-                rows="3"
-                placeholder="Enter your answer here. Use markup notation for formatting. To insert an image, provide the image URL."
-              ></textarea>
-            </div>
-            <div>
-              <label class="block text-gray-700">Question 2</label>
-              <textarea
-                class="form-textarea mt-1 block w-full"
-                rows="3"
-                placeholder="Enter your answer here. Use markup notation for formatting. To insert an image, provide the image URL."
-              ></textarea>
-            </div>
-            <div>
-              <label class="block text-gray-700">Question 3</label>
-              <textarea
-                class="form-textarea mt-1 block w-full"
-                rows="3"
-                placeholder="Enter your answer here. Use markup notation for formatting. To insert an image, provide the image URL."
-              ></textarea>
-            </div>
+          <%= form_with url: membership_confirmation_answers_path, method: :post, class: "space-y-4" do |form| %>
+            <% @confirmation_questions.each_with_index do |q, index| %>
+              <div>
+                <label class="block text-gray-700">Q <%= index + 1 %> <%= q.question %></label>
+                <%= form.text_area "topic#{@topic.id}_question#{q.id}",
+                                   class: "form-textarea mt-1 block w-full",
+                                   rows: 3
+                %>
+              </div>
+            <% end %>
             <div class="flex space-x-4">
-              <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2">
-                Submit Answers
-              </button>
-              <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 px-4 py-2">
-                Save Draft
+              <%= form.submit "提出", class: "btn btn-active btn-accent" %>
+              <button class="btn btn-active">
+                下書き保存
               </button>
             </div>
-          </form>
+          <% end %>
         </div>
       </div>
     </div>
@@ -51,7 +36,7 @@
       <div class="flex justify-between items-center">
         <div>
           <a class="text-2xl font-bold" href="#">
-            Engineering Learning Portal
+            エンジニア進化塾
           </a>
         </div>
         <div class="space-x-4">
@@ -59,7 +44,7 @@
             About
           </a>
           <a class="text-gray-600 dark:text-gray-300" href="#">
-            Contact
+            問い合わせ
           </a>
         </div>
       </div>

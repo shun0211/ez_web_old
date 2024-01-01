@@ -14,6 +14,7 @@
 #
 class ConfirmationQuestion < ApplicationRecord
   belongs_to :topic
+  has_many :confirmation_answers, dependent: :destroy
 
   validates :question, presence: true, uniqueness: true
 end
