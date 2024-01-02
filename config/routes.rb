@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :topics, only: [:index]
     resources :confirmation_questions, only: [:index]
     resources :confirmation_answers, only: [:create]
+    post 'confirmation_answers/bulk_update', to: 'confirmation_answers#bulk_update'
   end
 end

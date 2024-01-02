@@ -10,14 +10,11 @@
           </h2>
         </div>
         <div class="p-6">
-          <%= form_with url: membership_confirmation_answers_path, method: :post, class: "space-y-4" do |form| %>
+          <%= form_with url: membership_confirmation_answers_bulk_update_path, method: :post, class: "space-y-4" do |form| %>
             <% @confirmation_questions.each_with_index do |q, index| %>
               <div>
                 <label class="block text-gray-700">Q <%= index + 1 %> <%= q.question %></label>
-                <%= form.text_area "topic#{@topic.id}_question#{q.id}",
-                                   class: "form-textarea mt-1 block w-full",
-                                   rows: 3
-                %>
+                <%= text_area_tag "questions[#{q.id}]", @confirmation_answers_hash[q.id].answer, rows: 3, class: "form-textarea mt-1 block w-full" %>
               </div>
             <% end %>
             <div class="flex space-x-4">
