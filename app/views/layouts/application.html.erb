@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
+    <!-- 現在の HTML ページにある head タグとレスポンスの head タグを比べて違いがあればページ全体をリロードする -->
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
     <!-- 非推奨だが、NodeJS 環境がないので CDN 経由で使う -->
@@ -17,6 +18,9 @@
 
   <body>
     <main class="mx-auto flex px-5">
+      <div class="flash">
+        <%= render "layouts/flash" %>
+      </div>
       <%= yield %>
     </main>
   </body>

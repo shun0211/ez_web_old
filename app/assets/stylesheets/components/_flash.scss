@@ -1,0 +1,50 @@
+.flash {
+  position:fixed;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-s);
+
+  max-width: 100%;
+  width: max-content;
+  padding: 0 var(--space-m);
+
+  &__message {
+    font-size: var(--font-size-s);
+    color: var(--color-white);
+    padding: var(--space-xs) var(--space-m);
+    background-color: var(--color-dark);
+    animation: appear-then-fade 4s both;
+    border-radius: 999px;
+  }
+}
+
+.flash {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-s);
+
+  max-width: calc(100% - 2rem);
+  width: max-content;
+  padding: 0 var(--space-m);
+  z-index: 1000; /* 他の要素の上に表示されるようにする */
+}
+
+.flash__message {
+  font-size: var(--font-size-s);
+  color: var(--color-white);
+  padding: 5px 10px;
+  background-color: var(--color-dark);
+  border-radius: 4px; /* 角丸を少し減らす */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 影を追加して立体感を出す */
+  animation: fadeInOut 3s ease-in-out;
+}

@@ -130,6 +130,9 @@ GEM
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
     crass (1.0.6)
+    dartsass-rails (0.5.0)
+      railties (>= 6.0.0)
+      sass-embedded (~> 1.63)
     date (3.3.4)
     debug (1.9.1)
       irb (~> 1.10)
@@ -201,6 +204,7 @@ GEM
       google-apis-core (>= 0.11.0, < 2.a)
     google-cloud-env (2.1.0)
       faraday (>= 1.0, < 3.a)
+    google-protobuf (3.25.1-aarch64-linux)
     googleauth (1.9.1)
       faraday (>= 1.0, < 3.a)
       google-cloud-env (~> 2.1)
@@ -412,6 +416,8 @@ GEM
     rubyzip (2.3.2)
     rufus-scheduler (3.9.1)
       fugit (~> 1.1, >= 1.1.6)
+    sass-embedded (1.69.6-aarch64-linux-gnu)
+      google-protobuf (~> 3.25)
     selenium-webdriver (4.16.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -502,6 +508,7 @@ DEPENDENCIES
   capybara
   carrierwave (~> 2.0)
   committee-rails
+  dartsass-rails
   debug
   dotenv-rails
   enum_help
