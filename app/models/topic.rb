@@ -11,6 +11,7 @@
 #
 class Topic < ApplicationRecord
   has_many :confirmation_questions, dependent: :destroy
+  has_many :user_topic_progresses, dependent: :destroy
 
   enum learning_stage: { basic: 0, advanced: 1, portfolio: 2, interviewing: 3 }
 

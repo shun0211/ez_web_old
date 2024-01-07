@@ -10,6 +10,7 @@
 #
 class User < ApplicationRecord
   has_many :confirmation_answers
+  has_many :user_topic_progresses
 
   validates :firebase_uid, presence: true, uniqueness: true
 end
