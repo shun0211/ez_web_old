@@ -3,7 +3,7 @@ class MembershipController < ApplicationController
 
   def current_user
     # @current_user
-    @current_user ||= User.find_or_create_by(firebase_uid: "xxx")
+    @current_user ||= User.find_or_create_by(firebase_uid: "123456")
   end
 
   private
