@@ -48,7 +48,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_02_081938) do
 
   create_table "questions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", null: false
-    t.text "content", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -2,13 +2,13 @@
 #
 # Table name: user_topic_progresses
 #
-#  id         :bigint           not null, primary key
-#  progress   :integer          default(0), not null
-#  status     :integer          default(0), not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  topic_id   :bigint           not null
-#  user_id    :bigint           not null
+#  id           :bigint           not null, primary key
+#  completed_at :datetime
+#  status       :integer          default("not_started"), not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  topic_id     :bigint           not null
+#  user_id      :bigint           not null
 #
 # Indexes
 #
