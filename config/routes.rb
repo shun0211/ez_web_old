@@ -10,4 +10,5 @@ Rails.application.routes.draw do
     post 'confirmation_answers/bulk_update', to: 'confirmation_answers#bulk_update'
     resources :questions
   end
+  resources :questions
 end
